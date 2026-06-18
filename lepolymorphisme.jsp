@@ -90,6 +90,25 @@ class Chat extends Animal implements Affichable {
     }
 }
 
+class Oiseau extends Animal implements Affichable {
+
+    public Oiseau(String nom) {
+        super(nom);
+    }
+
+    public String crier() {
+        return "Cui cui !";
+    }
+
+    public String afficher() {
+        return "Je suis l'oiseau " + nom;
+    }
+
+    public String toString() {
+        return "Oiseau nommé " + nom;
+    }
+}
+
 abstract class Forme {
     public abstract double aire();
 }
@@ -143,7 +162,8 @@ for(Forme f : formes){
 <%
 Affichable[] affichables = {
     new Chien(chien),
-    new Chat(chat)
+    new Chat(chat),
+    new Oiseau("Titi")
 };
 
 for(Affichable a : affichables){
