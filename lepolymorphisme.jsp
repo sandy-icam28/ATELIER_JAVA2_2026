@@ -32,6 +32,10 @@
 <h2>Exercice 1 : Redéfinir toString()</h2>
 
 <%!
+interface Affichable {
+    public String afficher();
+}
+
 class Animal {
     String nom;
 
@@ -48,7 +52,8 @@ class Animal {
     }
 }
 
-class Chien extends Animal {
+class Chien extends Animal implements Affichable {
+
     public Chien(String nom) {
         super(nom);
     }
@@ -57,12 +62,17 @@ class Chien extends Animal {
         return "Wouf wouf !";
     }
 
+    public String afficher() {
+        return "Je suis le chien " + nom;
+    }
+
     public String toString() {
         return "Chien nommé " + nom;
     }
 }
 
-class Chat extends Animal {
+class Chat extends Animal implements Affichable {
+
     public Chat(String nom) {
         super(nom);
     }
@@ -71,10 +81,15 @@ class Chat extends Animal {
         return "Miaou !";
     }
 
+    public String afficher() {
+        return "Je suis le chat " + nom;
+    }
+
     public String toString() {
         return "Chat nommé " + nom;
     }
 }
+
 abstract class Forme {
     public abstract double aire();
 }
@@ -124,9 +139,19 @@ for(Forme f : formes){
 %>
 
 <h2>Exercice 3 : L'interface Affichable</h2>
-<p>Créer une interface <code>Affichable</code> avec une méthode <code>afficher()</code>.</br>
-Faire implémenter cette interface par <code>Chien</code> et <code>Chat</code>.</br>
-Stocker un Chien et un Chat dans un tableau <code>Affichable[]</code> et appeler <code>afficher()</code> sur chacun.</p>
+
+<%
+Affichable[] affichables = {
+    new Chien(chien),
+    new Chat(chat)
+};
+
+for(Affichable a : affichables){
+%>
+    <p><%= a.afficher() %></p>
+<%
+}
+%>
 
 <h2>Exercice 4 : Ajouter un Oiseau</h2>
 <p>Créer une nouvelle sous-classe <code>Oiseau</code> qui hérite de <code>Animal</code> et redéfinit <code>crier()</code> par "Cui cui !".</br>
