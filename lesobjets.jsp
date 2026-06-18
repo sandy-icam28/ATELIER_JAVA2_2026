@@ -119,42 +119,6 @@ compte.retirer(30);
 
 <h2>Exercice 5 : L'encapsulation</h2>
 
-<%!
-class Personne {
-    private String nom;
-    private int age;
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String seDecrire() {
-        return "Je m'appelle " + nom + " et j'ai " + age + " ans";
-    }
-}
-%>
-<%
-Personne p = new Personne();
-
-p.setNom(nom);
-p.setAge(Integer.parseInt(age));
-%>
-<p>Nom : <%= p.getNom() %></p>
-<p>Age : <%= p.getAge() %> ans</p>
-
-<p><%= p.seDecrire() %></p>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
