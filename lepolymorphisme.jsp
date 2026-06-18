@@ -12,23 +12,6 @@
 </form>
 
 <%-- Une classe mère Animal et deux classes filles qui redéfinissent la méthode crier() --%>
-<%!
-    class Animal {
-        String nom;
-        public Animal(String nom) { this.nom = nom; }
-        public String crier() { return "..."; }
-    }
-
-    class Chien extends Animal {
-        public Chien(String nom) { super(nom); }
-        public String crier() { return "Wouf wouf !"; }
-    }
-
-    class Chat extends Animal {
-        public Chat(String nom) { super(nom); }
-        public String crier() { return "Miaou !"; }
-    }
-%>
 
 <%-- Récupération des valeurs du formulaire --%>
 <% String chien = request.getParameter("chien"); %>
@@ -93,6 +76,10 @@ class Chat extends Animal {
     }
 }
 %>
+
+<% for (Animal a : animaux) { %>
+    <p><%= a.toString() %></p>
+<% } %>
 
 <h2>Exercice 2 : La classe abstraite Forme</h2>
 <p>Créer une classe abstraite <code>Forme</code> avec une méthode abstraite <code>aire()</code>.</br>
