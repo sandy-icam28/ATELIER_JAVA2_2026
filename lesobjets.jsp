@@ -12,12 +12,7 @@
 </form>
 
 <%-- Déclaration d'une classe Personne avec deux attributs --%>
-<%!
-    class Personne {
-        String nom;
-        int age;
-    }
-%>
+
 
 <%-- Récupération des valeurs du formulaire --%>
 <% String nom = request.getParameter("nom"); %>
