@@ -35,6 +35,27 @@
     <p>Age : <%= p.age %> ans</p>
 
 <h2>Exercice 1 : La classe Voiture</h2>
+
+<%!
+class Voiture {
+    String marque;
+    String modele;
+    int annee;
+}
+%>
+
+<%
+Voiture v = new Voiture();
+v.marque = "Peugeot";
+v.modele = "208";
+v.annee = 2022;
+%>
+
+<h3>Voiture</h3>
+<p>Marque : <%= v.marque %></p>
+<p>Modèle : <%= v.modele %></p>
+<p>Année : <%= v.annee %></p>
+
 <p>Créer une classe <code>Voiture</code> avec les attributs <code>marque</code>, <code>modele</code> et <code>annee</code>.</br>
 Instancier une voiture, lui affecter des valeurs et afficher ses caractéristiques.</p>
 
