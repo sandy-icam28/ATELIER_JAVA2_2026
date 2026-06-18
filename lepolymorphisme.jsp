@@ -20,7 +20,7 @@
 <% if (chien != null && chat != null && !chien.isEmpty() && !chat.isEmpty()) { %>
 
     <%-- Tableau d'Animal contenant en réalité un Chien et un Chat --%>
-    <% Animal[] animaux = { new Chien(chien), new Chat(chat) }; %>
+    <% Animal[] animaux = { new Chien(chien), new Chat(chat), new Oiseau("Titi") }; %>
 
     <p>Démonstration du polymorphisme :</br>
     Le tableau est déclaré <code>Animal[]</code>, mais c'est bien la méthode <code>crier()</code> de la sous-classe (Chien ou Chat) qui est appelée à l'exécution.</p>
@@ -174,15 +174,25 @@ for(Affichable a : affichables){
 %>
 
 <h2>Exercice 4 : Ajouter un Oiseau</h2>
-<p>Créer une nouvelle sous-classe <code>Oiseau</code> qui hérite de <code>Animal</code> et redéfinit <code>crier()</code> par "Cui cui !".</br>
-L'ajouter dans le tableau d'animaux ci-dessus, <strong>sans modifier la boucle d'affichage</strong>.</br>
-Constater que le code de la boucle continue de fonctionner : c'est tout l'intérêt du polymorphisme.</p>
+<p>L'oiseau a été ajouté, sans modifier la boucle d'affichage</p>
 
 <h2>Exercice 5 : L'opérateur instanceof</h2>
-<p>Dans la boucle qui parcourt les animaux, utiliser <code>instanceof</code> pour afficher un message spécifique :</br>
-- "C'est un chien" si l'animal est un <code>Chien</code>,</br>
-- "C'est un chat" si l'animal est un <code>Chat</code>,</br>
-- "Autre animal" dans tous les autres cas.</p>
+
+<% for (Animal a : animaux) { %>
+
+    <p><%= a.nom %> dit : <%= a.crier() %></p>
+
+    <% if(a instanceof Chien) { %>
+        <p>C'est un chien</p>
+
+    <% } else if(a instanceof Chat) { %>
+        <p>C'est un chat</p>
+
+    <% } else { %>
+        <p>Autre animal</p>
+    <% } %>
+
+<% } %>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
