@@ -75,6 +75,33 @@ class Chat extends Animal {
         return "Chat nommé " + nom;
     }
 }
+abstract class Forme {
+    public abstract double aire();
+}
+
+class Cercle extends Forme {
+    double rayon;
+
+    public Cercle(double rayon) {
+        this.rayon = rayon;
+    }
+
+    public double aire() {
+        return Math.PI * rayon * rayon;
+    }
+}
+
+class Carre extends Forme {
+    double cote;
+
+    public Carre(double cote) {
+        this.cote = cote;
+    }
+
+    public double aire() {
+        return cote * cote;
+    }
+}
 %>
 
 <% for (Animal a : animaux) { %>
@@ -82,11 +109,19 @@ class Chat extends Animal {
 <% } %>
 
 <h2>Exercice 2 : La classe abstraite Forme</h2>
-<p>Créer une classe abstraite <code>Forme</code> avec une méthode abstraite <code>aire()</code>.</br>
-Créer deux sous-classes :</br>
-- <code>Cercle</code> avec un attribut <code>rayon</code>,</br>
-- <code>Carre</code> avec un attribut <code>cote</code>.</br>
-Implémenter <code>aire()</code> dans chacune. Créer un tableau de <code>Forme</code> contenant les deux et afficher leurs aires.</p>
+
+<%
+Forme[] formes = {
+    new Cercle(3),
+    new Carre(4)
+};
+
+for(Forme f : formes){
+%>
+    <p>Aire : <%= f.aire() %></p>
+<%
+}
+%>
 
 <h2>Exercice 3 : L'interface Affichable</h2>
 <p>Créer une interface <code>Affichable</code> avec une méthode <code>afficher()</code>.</br>
