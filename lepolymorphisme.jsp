@@ -47,9 +47,52 @@
     <% } %>
 
 <h2>Exercice 1 : Redéfinir toString()</h2>
-<p>Ajouter à la classe <code>Animal</code> et à ses sous-classes <code>Chien</code> et <code>Chat</code> une méthode <code>toString()</code> qui retourne par exemple :</br>
-"Chien nommé Rex" ou "Chat nommé Felix".</br>
-Afficher <code>a.toString()</code> pour chaque animal du tableau.</p>
+
+<%!
+class Animal {
+    String nom;
+
+    public Animal(String nom) {
+        this.nom = nom;
+    }
+
+    public String crier() {
+        return "...";
+    }
+
+    public String toString() {
+        return "Animal nommé " + nom;
+    }
+}
+
+class Chien extends Animal {
+    public Chien(String nom) {
+        super(nom);
+    }
+
+    public String crier() {
+        return "Wouf wouf !";
+    }
+
+    public String toString() {
+        return "Chien nommé " + nom;
+    }
+}
+
+class Chat extends Animal {
+    public Chat(String nom) {
+        super(nom);
+    }
+
+    public String crier() {
+        return "Miaou !";
+    }
+
+    public String toString() {
+        return "Chat nommé " + nom;
+    }
+}
+%>
 
 <h2>Exercice 2 : La classe abstraite Forme</h2>
 <p>Créer une classe abstraite <code>Forme</code> avec une méthode abstraite <code>aire()</code>.</br>
