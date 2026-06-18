@@ -100,22 +100,6 @@ Etudiant e3 = new Etudiant("Marie", 15);
 <p>Etudiant 2 : <%= e2.nom %> - Note : <%= e2.note %></p>
 <p>Etudiant 3 : <%= e3.nom %> - Note : <%= e3.note %></p>
 
-<h2>Exercice 1 : Le constructeur par défaut</h2>
-<p>Créer une classe <code>Etudiant</code> avec un constructeur par défaut qui initialise :</br>
-- l'attribut <code>nom</code> à "Anonyme"</br>
-- l'attribut <code>note</code> à 10.</br>
-Instancier un étudiant avec ce constructeur et afficher ses informations.</p>
-
-<h2>Exercice 2 : La surcharge de constructeurs</h2>
-<p>Ajouter à la classe <code>Etudiant</code> deux autres constructeurs :</br>
-- un constructeur prenant uniquement le <code>nom</code> en paramètre (la note vaut 10 par défaut),</br>
-- un constructeur prenant le <code>nom</code> et la <code>note</code> en paramètres.</br>
-Créer 3 étudiants avec les 3 constructeurs et afficher leurs informations.</p>
-
-<h2>Exercice 3 : Chaîner les constructeurs avec this()</h2>
-<p>Dans la classe <code>Etudiant</code>, modifier le constructeur sans paramètre pour qu'il appelle le constructeur à deux paramètres avec <code>this("Anonyme", 10)</code>.</br>
-Cela évite la duplication du code d'initialisation.</p>
-
 <h2>Exercice 4 : Le constructeur de copie</h2>
 <%
 Etudiant copie = new Etudiant(e3);
@@ -124,7 +108,6 @@ Etudiant copie = new Etudiant(e3);
 <p>Copie : <%= copie.nom %> - <%= copie.note %></p>
 
 <h2>Exercice 5 : Valider les paramètres dans le constructeur</h2>
-<h2>Exercice 5 : Produit</h2>
 
 <%
 Produit p = new Produit(-50);
